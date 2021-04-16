@@ -17,10 +17,10 @@ User.destroy_all
 
 User.create! [
                { first_name: 'Ahmad', last_name: 'Jallad', email: 'jallada@mcmaster.ca', password: '123'},
-               { first_name: 'James', last_name: 'Theodore', email: 'jallada@mcmaster.ca', password: '123'},
-               { first_name: 'Eduardo', last_name: 'Werneck', email: 'jallada@mcmaster.ca', password: '123'},
-               { first_name: 'Junia', last_name: 'Joseph', email: 'jallada@mcmaster.ca', password: '123'},
-               { first_name: 'Hilary', last_name: 'Thombson', email: 'jallada@mcmaster.ca', password: '123'}
+               { first_name: 'James', last_name: 'Theodore', email: 'james@yahoo.com', password: '123'},
+               { first_name: 'Eduardo', last_name: 'Werneck', email: 'eduardo@google.com', password: '123'},
+               { first_name: 'Junia', last_name: 'Joseph', email: 'junia@hotmail.com', password: '123'},
+               { first_name: 'Hilary', last_name: 'Thombson', email: 'hilary@gmail.com', password: '123'}
              ]
 
 UserAddress.create! [

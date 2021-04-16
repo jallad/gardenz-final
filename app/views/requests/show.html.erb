@@ -26,4 +26,5 @@
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>
+
 <%= render @request.offers.where('id NOT NULL') %>

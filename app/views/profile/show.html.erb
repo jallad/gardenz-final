@@ -1,13 +1,23 @@
-<h1> Sign up</h1>
+<h1> Profile </h1>
+
+<div class="card-body">
+  <h5 class="card-title"><%= "#{Current.user.first_name} #{Current.user.last_name} "  %></h5>
+  <p class="card-text"><%= Current.user.email %></p>
+  <%= link_to "Edit profile", edit_profile_path, class: "btn btn-primary" %>
+
+</div>
 
 
-  <div class="mb-3">
-    <%= Current.user.first_name %>
-  </div>
-  <div class="mb-3">
-    <%= Current.user.last_name %>
-  </div>
-  <div class="mb-3">
-    <%= Current.user.email %>
-  </div>
-<%= Current.user.user_address.city %>
+    <div class="mb-3">
+
+    </div>
+    <div class="mb-3">
+
+    </div>
+    <div class="mb-3">
+
+    </div>
+
+<% if not Current.user.user_address.nil? %>
+  <%= render Current.user.user_address %>
+<% end %>
