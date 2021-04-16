@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
   resources :skills
-  resources :requests
+  resources :requests do
+    resources :offers, only: [:create, :destroy]
+  end
+
+
   resources :sessions, only: [:new, :create, :destroy]
 
   get '/login', to: 'sessions#new', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
+
+  get 'myprofile', to: 'profile#show', as: :show_profile
+  get 'profile', to: 'profile#edit', as: :edit_profile
+  patch 'profile', to: 'profile#update'
 
   get '/requests', to: "requests#index"
   get '/skills', to: "skills#index"

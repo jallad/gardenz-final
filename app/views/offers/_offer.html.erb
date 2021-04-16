@@ -1,0 +1,16 @@
+<div class="card-footer text-muted">
+
+  <div class="card-header">
+    Offer#: <%= offer.id %>
+  </div>
+  <div class="card">
+    <div class="card-body">
+
+      <h6 class="card-subtitle mb-2 text-muted"><%= "Value : #{offer.value} USD" %></h6>
+      <p class="btn-link"><%= "Duration : #{offer.offer_detail.try(:days)} days" %></p>
+      <p class="card-text"><%= "Description : #{offer.offer_detail.try(:description)}" %></p>
+
+    </div>
+    <%= link_to "Delete Offer", [@request, offer], method: :delete , class: "btn btn-danger"%>
+  </div>
+</div>

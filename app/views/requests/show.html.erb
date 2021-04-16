@@ -1,14 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @request.subject %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @request.description %>
-</p>
+<div class="card text-center">
+  <div class="card-header">
+    Subject:
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"> <%= @request.subject %></h5>
+    <p class="card-text"><%= @request.description %></p>
+    <%= link_to 'Edit', edit_request_path(@request) , class: "card-link" %>
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+    <%= link_to 'Back', requests_path, class: "card-link" %>
+
+  </div>
+
+</div>
+<div class="card-footer text-muted">
+  <%= form_for ([@request, @request.offers.new]) do |f| %>
+    Value: <%= f.text_field :value , class: "form-control" %><br />
+    <%= f.fields_for :offer_detail do |od| %>
+      Days: <%= od.text_field :days , class: "form-control" %>
+      Description: <%= od.text_field :description, class: "form-control mb-3"  %>
+
+    <% end %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
+<%= render @request.offers.where('id NOT NULL') %>
