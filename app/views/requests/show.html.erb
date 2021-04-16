@@ -27,4 +27,4 @@
   <% end %>
 </div>
 
-<%= render @request.offers.where('id NOT NULL') %>
+<%= render @request.offers.where(user: Current.user) %>
