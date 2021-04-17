@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :experiences
   resources :skills
   resources :requests do
     resources :offers, only: [:create, :destroy]

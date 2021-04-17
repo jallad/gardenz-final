@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Experience.destroy_all
 UserAddress.destroy_all
 OfferDetail.destroy_all
 Skill.destroy_all
@@ -27,6 +27,9 @@ UserAddress.create! [
                       {street: '105 Allan St', city: 'Oakville', country: 'Canada', user_id: User.first.id },
                       {street: '105 Allan St', city: 'Oakville', country: 'Canada', user_id: User.last.id }
                     ]
+Experience.create! [
+                     {project_name: "Ontario Garden", from: "2020-04-17", to: "2020-06-15", description: "Ontario Garden Project", user_id: User.first.id}
+                   ]
 
 Request.create! [
                   { subject: 'Potato Project' , description: 'Planting 10,000 m white potatoes.' } ,

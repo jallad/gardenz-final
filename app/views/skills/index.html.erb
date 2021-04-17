@@ -14,9 +14,9 @@
     <% @skills.each do |skill| %>
       <tr scope="row">
         <td><%= skill.name %></td>
-        <td><%= link_to 'Show', skill %></td>
-        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', skill, class: "btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Skill', new_skill_path %>
+<%= link_to 'New Skill', new_skill_path, class: "btn btn-primary"  %>

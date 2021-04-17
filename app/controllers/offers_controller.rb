@@ -1,4 +1,5 @@
 class OffersController < ApplicationController
+  before_action :require_user_logged_in!
   before_action :get_selected_request, only: [:create, :destroy]
 
   # def create

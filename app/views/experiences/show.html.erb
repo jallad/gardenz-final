@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project name:</strong>
+  <%= @experience.project_name %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @experience.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @experience.to %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @experience.description %>
+</p>
+
+<%= link_to 'Edit', edit_experience_path(@experience) , class: "btn btn-primary"%> |
+<%= link_to 'Back', experiences_path, class: "btn btn-secondary" %>

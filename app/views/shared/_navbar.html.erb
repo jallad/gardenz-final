@@ -11,12 +11,17 @@
       <li class="nav-item active">
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
-      <li class="nav-item active">
-        <%= link_to "Requests", requests_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to "Skills", skills_path, class: "nav-link" %>
-      </li>
+      <% if Current.user %>
+        <li class="nav-item active">
+          <%= link_to "Requests", requests_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Skills", skills_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "My Experience", experiences_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
 
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

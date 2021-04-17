@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+  before_action :require_user_logged_in!
   before_action :set_skill, only: %i[ show edit update destroy ]
 
   # GET /skills or /skills.json

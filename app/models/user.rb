@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_one :user_address, dependent: :destroy
   has_many :offers, dependent: :delete_all
+  has_many :experiences, dependent: :delete_all
   has_and_belongs_to_many :skills
   has_many :proposals, through: :offers, source: :offer_detail
 
