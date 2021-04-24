@@ -32,8 +32,11 @@ Rails.application.routes.draw do
     get 'requests/search', to: 'requests#search'
     get 'offers/search', to: 'offers#search'
     get 'skills/search', to: 'skills#search'
+    get 'addresses/search', to: 'addresses#search'
 
-    resources :requests, :offers, :skills , :experiences
+    resources :requests, :offers, :skills, :experiences, :addresses
+
+    devise_for :users
 
   end
 end

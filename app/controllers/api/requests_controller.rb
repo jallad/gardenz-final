@@ -1,6 +1,6 @@
 class Api::RequestsController < ApiController
   def index
-    render json: Request.all
+    render json: Request.all, include: :offers
   end
 
   def show
@@ -14,9 +14,9 @@ class Api::RequestsController < ApiController
 
   def search
     if params[:subject]
-      render json: Request.where('subject LIKE ?', "%#{params[:subject]}%")
+      render json: Request.where('subject LIKE ?', "%#{params[:subject]}%"), include: :offers
       else if params[:desc]
-             render json: Request.where('description LIKE ?', "%#{params[:desc]}%")
+             render json: Request.where('description LIKE ?', "%#{params[:desc]}%"), include: :offers
            else
              render json: {error: 'Request not found, search query missing'}, status: 404
            end
@@ -33,7 +33,7 @@ class Api::RequestsController < ApiController
   end
 
   def destroy
-    request = Request.find(params[:id])
+    request = Request.find_by(id: params[:id])
     if request.destroy
       render json: {message: 'request deleted'}, status: :ok
     else

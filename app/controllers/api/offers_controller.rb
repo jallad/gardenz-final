@@ -24,8 +24,8 @@ class Api::OffersController < ApiController
   end
 
   def create
-    user = User.find(params[:id])
-    request = Request.find(params[:request_id])
+    user = User.find_by(id: params[:user_id])
+    request = Request.find_by(id: params[:request_id])
     if user && request && params[:value]
       offer = user.offers.new(value: params[:value])
       offer.request = request
@@ -53,7 +53,7 @@ class Api::OffersController < ApiController
 
   def destroy
 
-    offer = Offer.find(params[:id])
+    offer = Offer.find_by(id: params[:id])
     if offer.destroy
       render json: {message: 'offer deleted'}, status: :ok
     else
