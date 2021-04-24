@@ -43,14 +43,22 @@ class Api::OffersController < ApiController
         else
           render json: offer
         end
-
       else
         render json: {error: 'Cannot create offer'}, status: 404
       end
     else
       render json: {error: 'User, Request or value not found to add offer, make sure of sent parameters'}, status: 404
     end
+  end
 
+  def destroy
+
+    offer = Offer.find(params[:id])
+    if offer.destroy
+      render json: {message: 'offer deleted'}, status: :ok
+    else
+      render json: {error: 'Cannot delete offer'}, status: :unprocessable_entity
+    end
   end
 
 end

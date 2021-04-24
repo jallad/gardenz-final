@@ -32,4 +32,13 @@ class Api::RequestsController < ApiController
     end
   end
 
+  def destroy
+    request = Request.find(params[:id])
+    if request.destroy
+      render json: {message: 'request deleted'}, status: :ok
+    else
+      render json: {error: 'Cannot delete request'}, status: :unprocessable_entity
+    end
+  end
+
 end
