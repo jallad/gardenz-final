@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
   has_one :user_address, dependent: :destroy
   has_many :offers, dependent: :delete_all
   has_many :experiences, dependent: :delete_all
