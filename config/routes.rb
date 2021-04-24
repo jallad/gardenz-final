@@ -26,4 +26,14 @@ Rails.application.routes.draw do
 
   root to: "home#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #
+
+  namespace :api, default: {format: 'json'} do
+    get 'requests/search', to: 'requests#search'
+    get 'offers/search', to: 'offers#search'
+    get 'skills/search', to: 'skills#search'
+
+    resources :requests, :offers, :skills , :experiences
+
+  end
 end
