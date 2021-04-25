@@ -12,4 +12,10 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
   validates :first_name, presence: {message: "First name is required"}
+
+  alias_method :authenticate, :valid_password?
+
+  def self.from_token_payload(payload)
+    self.find payload["sub"]
+  end
 end

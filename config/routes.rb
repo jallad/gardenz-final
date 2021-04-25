@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post 'user_token' => 'user_token#create'
   devise_for :users
 
   resources :experiences
@@ -34,9 +35,14 @@ Rails.application.routes.draw do
     get 'skills/search', to: 'skills#search'
     get 'addresses/search', to: 'addresses#search'
 
-    resources :requests, :offers, :skills, :experiences, :addresses
+    # root 'home#index'
+    # get 'auth', to: 'home#auth'
 
-    devise_for :users
+    resources :requests, :offers, :skills, :experiences, :addresses, :users
+    # get '/users', to: 'users#index'
+    # post '/users/create', to: 'users#create'
+
+    #devise_for :users
 
   end
 end

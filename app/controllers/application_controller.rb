@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Knock::Authenticable
+
   before_action :set_current_user
   before_action :configure_permitted_parameters, if: :devise_controller?
+  #before_action :configure_permitted_parameters, if: :user_controller?
+
   protected
 
   def set_current_user
@@ -15,6 +19,8 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:user, keys: [:first_name, :last_name, :email, :password, :password_confirmation])
+
   end
 
 end
