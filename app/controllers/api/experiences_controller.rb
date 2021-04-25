@@ -1,4 +1,6 @@
 class Api::ExperiencesController < ApiController
+  before_action :authenticate_user
+
   def index
     render json: Experience.all
   end

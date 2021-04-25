@@ -1,4 +1,6 @@
 class Api::RequestsController < ApiController
+  before_action :authenticate_user
+
   def index
     render json: Request.all, include: :offers
   end

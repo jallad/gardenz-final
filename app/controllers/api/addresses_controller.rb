@@ -1,4 +1,6 @@
 class Api::AddressesController < ApiController
+  before_action :authenticate_user
+
   def index
     render json: UserAddress.all
   end

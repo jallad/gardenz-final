@@ -22,6 +22,15 @@ class Api::UsersController < ApiController
       end
   end
 
+  def update
+    if @user.save(user_params)
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+
   def user_params
     params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
